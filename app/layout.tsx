@@ -6,6 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import "modern-normalize";
 import "./globals.css";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,24 +19,27 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "NoteHub",
-  description:
-    "NoteHub helps you create, organize, and manage personal notes easily and efficiently.",
+  description: "NoteHub helps you create, organize, and manage personal notes easily and efficiently.",
 };
 
 export default function RootLayout({
   children,
+  modal
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
-  const year = new Date().getFullYear();
 
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <TanStackProvider>
           <Header />
-          <main>{children}</main>
-          <Footer initialYear={year} />
+          <main>
+            {children}
+            {modal}
+          </main>
+          <Footer/>
         </TanStackProvider>
       </body>
     </html>
