@@ -10,6 +10,7 @@ interface NoteFormProps {
   onClose: () => void;
 }
 
+
 const validationSchema = Yup.object({
   title: Yup.string()
     .min(3, "Title must be at least 3 characters")
@@ -66,7 +67,7 @@ const NoteForm: React.FC<NoteFormProps> = ({ onClose }) => {
             <label htmlFor="tag">Tag</label>
             <Field as="select" id="tag" name="tag" className={css.select}>
               <option value="" disabled>
-                Choose one
+                Select a tag
               </option>
               <option value="Todo">Todo</option>
               <option value="Work">Work</option>

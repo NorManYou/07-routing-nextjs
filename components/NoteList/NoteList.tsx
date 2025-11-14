@@ -27,6 +27,10 @@ export default function NoteList({ notes }: NoteListProps) {
     }
   };
 
+  if (!notes || notes.length === 0) {
+    return <p className={css.empty}>No notes available.</p>;
+  }
+
   return (
     <ul className={css.list}>
       {notes.map((note) => (
